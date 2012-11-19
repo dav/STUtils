@@ -39,7 +39,7 @@
     uint8_t *buffer = malloc(byteLength);
     NSInteger bytesWritten = 0;
     
-    size_t usedByteLength;
+    NSUInteger usedByteLength;
     if ([inString getBytes:buffer maxLength:byteLength usedLength:&usedByteLength encoding:inEncoding options:NSStringEncodingConversionExternalRepresentation range:NSMakeRange(0,byteLength) remainingRange:NULL]) {
         if (!self.hasSpaceAvailable) {
             NSLog(@"Output stream has no space available.");

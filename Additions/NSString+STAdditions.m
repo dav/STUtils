@@ -27,7 +27,8 @@
 //
 
 #import "STUtils.h"
-
+#import "NSData+Base64.h"
+#import <CommonCrypto/CommonDigest.h>
 
 @implementation NSString (STAdditions)
 
