@@ -28,7 +28,7 @@
 //
 
 #import "STUtils.h"
-
+#import "LogMessage.h"
 
 #define USE_MAC_KEYCHAIN_API !TARGET_OS_IPHONE || (TARGET_IPHONE_SIMULATOR && __IPHONE_OS_VERSION_MIN_REQUIRED < __IPHONE_3_0)
 
@@ -397,6 +397,7 @@ static NSString *STKeychainErrorDomain = @"STKeychainErrorDomain";
 		}
 		return NO;
 	}
+  [LogMessage createLogMessageWithText:[NSString stringWithFormat:@"STKeychain DELETE %@/%@", serviceName, username] source:kLogMessageSourceTypeTwine];
 	
 	if (error != nil) {
 		*error = nil;
