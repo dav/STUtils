@@ -354,6 +354,8 @@ static NSString *STKeychainErrorDomain = @"STKeychainErrorDomain";
 			
 			NSDictionary *query = [[[NSDictionary alloc] initWithObjects:objects forKeys:keys] autorelease];			
 			
+      [LogMessage createLogMessageWithText:[NSString stringWithFormat:@"STKeychain UPDATE %@/%@", serviceName, username] source:kLogMessageSourceTypeTwine];
+
 			status = SecItemUpdate((CFDictionaryRef)query, (CFDictionaryRef)[NSDictionary dictionaryWithObject:[password dataUsingEncoding:NSUTF8StringEncoding] forKey:(NSString *)kSecValueData]);
 		}
 	}
@@ -379,6 +381,7 @@ static NSString *STKeychainErrorDomain = @"STKeychainErrorDomain";
 		
 		NSDictionary *query = [[[NSDictionary alloc] initWithObjects:objects forKeys:keys] autorelease];			
         
+    [LogMessage createLogMessageWithText:[NSString stringWithFormat:@"STKeychain ADD %@/%@", serviceName, username] source:kLogMessageSourceTypeTwine];
 		status = SecItemAdd((CFDictionaryRef) query, NULL);
 	}
 	
